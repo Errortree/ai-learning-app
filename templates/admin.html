@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h1>Administrative Dashboard</h1>
+
+<h2>System Overview</h2>
+
+<p><strong>Total Registered Students:</strong> {{ total_students }}</p>
+<p><strong>Total Recommendations Generated:</strong> {{ total_recommendations }}</p>
+<p><strong>Students at Risk (Negative Feedback Cases):</strong> {{ negative_cases }}</p>
+
+<hr>
+
+<h2>Feedback Sentiment Distribution</h2>
+
+{% if sentiment_data %}
+<ul>
+    {% for item in sentiment_data %}
+        <li>{{ item[0] }} : {{ item[1] }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No feedback data available yet.</p>
+{% endif %}
+
+<hr>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

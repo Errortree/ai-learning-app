@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendation Result</title>
+</head>
+<body>
+
+<h1>Your Personalized Learning Plan</h1>
+
+<p><strong>Course:</strong> {{ rec.course }}</p>
+<p><strong>Priority:</strong> {{ rec.priority }}</p>
+<p><strong>Duration:</strong> {{ rec.duration }}</p>
+
+<hr>
+
+<h3>AI Metrics</h3>
+
+<p><strong>Difficulty Index:</strong> {{ rec.difficulty_index }}</p>
+<p><strong>Confidence Score:</strong> {{ rec.confidence }}</p>
+
+<hr>
+
+<h3>Provide Feedback</h3>
+
+<form action="/feedback" method="POST">
+    <input type="hidden" name="student_id" value="{{ rec.student_id }}">
+    <textarea name="feedback" rows="4" cols="40" required></textarea><br><br>
+    <button type="submit">Submit Feedback</button>
+</form>
+
+<br>
+<a href="/">Back to Home</a>
+
+</body>
+</html>
